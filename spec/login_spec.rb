@@ -8,9 +8,9 @@ describe 'Login View Controller' do
   # it should slide out the login button when signup is tapped
   # it should slide in the confirm password field when signup is tapped
   #
-  # it should drop the confirm password field keyboard when the background is tapped
-  # it should slide out the confirm password field when the background is tapped while it's in view
-  # it should slide in the login button when the background is tapped in signup view
+  # it should drop the confirm password field keyboard
+  # it should slide out the confirm password field when the background is tapped
+  # it should slide the login button back in when the background is tapped
 
   it 'should drop the email field keyboard when the background is tapped' do
     tap('email')
@@ -65,7 +65,7 @@ describe 'Login View Controller' do
       controller.confirm_password_field.isEditing.should == false
     end
 
-    it 'should slide out the confirm password field when the background is tapped while it\'s in view' do
+    it 'should slide out the confirm password field when the background is tapped' do
       tap(controller.view, :at => CGPoint.make(x:5, y:50)) # tap below the nav bar
 
       confirm_password_field_right_edge = controller.confirm_password_field.center.x + LoginControlsWidth / 2
@@ -75,7 +75,7 @@ describe 'Login View Controller' do
       confirm_password_underline_right_edge.should <= 0
     end
 
-    it 'should slide in the login button when the background is tapped when in signup view' do
+    it 'should slide the login button back in when the background is tapped' do
       tap(controller.view, :at => CGPoint.make(x:5, y:50)) # tap below the nav bar
 
       login_center_x = controller.login_button.center.x
