@@ -8,7 +8,7 @@ describe 'Login View Controller' do
   # it should slide out the login button when signup is tapped
   # it should slide in the confirm password field when signup is tapped
   #
-  # it should drop the confirm password field keyboard
+  # it should drop the confirm password field keyboard when the background is tapped
   # it should slide out the confirm password field when the background is tapped
   # it should slide the login button back in when the background is tapped
 
