@@ -7,24 +7,31 @@ class LoginVC < UIViewController
 
     @in_signup_view = false
 
+    # keyboard button setup (field advancing / action triggers)
+    @email_field.when(DoneWithKeyboard) { @password_field.becomeFirstResponder }
+    @password_field.when(DoneWithKeyboard) { login }
+    @confirm_password_field.when(DoneWithKeyboard) { signup }
+
+    # if bg tapped in signup view, go back to login view
     view.when_tapped do
       drop_keyboard
-      leave_signup_view if @in_signup_view
+      if @in_signup_view
+        leave_signup_view
+        @password_field.returnKeyType = UIReturnKeyGo
+        @password_field.when(DoneWithKeyboard) { login }
+      end
     end
 
-    @email_field.when(DoneWithKeyboard) do
-      @password_field.becomeFirstResponder
-    end
-
+    # if signup tapped, animate to signup view &
+    # forward keyboard (password field => confirm password field)
     @signup_button.when_tapped do
-      animate_to_signup if not @in_signup_view
-    end
-  end
-
-  def leave_signup_view
-    @in_signup_view = false
-    [@login_button, @confirm_password_field, @confirm_password_underline].each do |moving_part|
-      moving_part.slide(:left, Device.screen.width)
+      if not @in_signup_view
+        animate_to_signup
+        @password_field.returnKeyType = UIReturnKeyNext
+        @password_field.when(DoneWithKeyboard) { @confirm_password_field.becomeFirstResponder }
+      else
+        signup
+      end
     end
   end
 
@@ -39,5 +46,20 @@ class LoginVC < UIViewController
     [@login_button, @confirm_password_field, @confirm_password_underline].each do |moving_part|
       moving_part.slide(:right, Device.screen.width)
     end
+  end
+
+  def leave_signup_view
+    @in_signup_view = false
+    [@login_button, @confirm_password_field, @confirm_password_underline].each do |moving_part|
+      moving_part.slide(:left, Device.screen.width)
+    end
+  end
+
+  def signup
+    drop_keyboard
+  end
+
+  def login
+    drop_keyboard
   end
 end

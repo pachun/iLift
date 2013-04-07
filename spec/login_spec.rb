@@ -7,10 +7,12 @@ describe 'Login View Controller' do
   #
   # it should slide out the login button when signup is tapped
   # it should slide in the confirm password field when signup is tapped
+  # it should advance the keyboard from the password to confirm password field
   #
   # it should drop the confirm password field keyboard when the background is tapped
   # it should slide out the confirm password field when the background is tapped
   # it should slide the login button back in when the background is tapped
+  # should stop advancing the keyboard from the password to confirm password field
 
   it 'should drop the email field keyboard when the background is tapped' do
     tap('email')
@@ -56,6 +58,15 @@ describe 'Login View Controller' do
       underline.center.x.should == controller.view.center.x
     end
 
+
+    it 'should advance the keyboard from the password to confirm password field' do
+      tap('password')
+      controller.password_field.isEditing.should == true
+
+      tap(controller.view, :at => CGPoint.make(x:310, y:558)) if Device.iphone?
+      controller.confirm_password_field.isEditing.should == true
+    end
+
     it 'should drop the confirm password field keyboard when the background is tapped' do
       tap('Confirm Password')
       controller.confirm_password_field.isEditing.should == true
@@ -80,6 +91,14 @@ describe 'Login View Controller' do
 
       login_center_x = controller.login_button.center.x
       login_center_x.should == controller.view.center.x
+    end
+
+    it 'should stop advancing the keyboard from the password to confirm password field' do
+      tap('password')
+      controller.password_field.isEditing.should == true
+
+      tap(controller.view, :at => CGPoint.make(x:310, y:558)) if Device.iphone?
+      controller.confirm_password_field.isEditing.should.not == true
     end
   end # signup view operations
 end
