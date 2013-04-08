@@ -1,10 +1,11 @@
 # helpful shortcuts
 DoneWithKeyboard = UIControlEventEditingDidEndOnExit
 
+# quick db test/production changing
+BaseURL = 'http://localhost'
+
 class AppDelegate
   def application(application, didFinishLaunchingWithOptions:launchOptions)
-    # return true if RUBYMOTION_ENV == 'test'
-
     customize_appearance
 
     nav = UINavigationController.alloc.initWithRootViewController(LoginVC.new)

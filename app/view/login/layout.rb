@@ -1,6 +1,9 @@
 class LoginVC < UIViewController
   stylesheet :login_sheet
 
+  # notifications
+  attr_accessor :success_note
+
   layout :root do
     @email_field = subview(UITextField, :email_field, :placeholder => 'email')
     subview(UIView, :email_underline)
@@ -19,6 +22,8 @@ class LoginVC < UIViewController
 
     @confirm_password_field = subview(UITextField, :confirm_password_field, :placeholder => 'Confirm Password')
     @confirm_password_underline = subview(UIView, :confirm_password_underline)
+
+    @success_note = subview(UILabel, :success_note)
   end
 
   def layoutDidLoad

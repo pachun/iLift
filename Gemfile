@@ -1,6 +1,6 @@
-gem 'fireball'
 gem 'teacup'
 gem 'sugarcube'
 gem 'sweettea'
-gem 'bubble-wrap'
+gem 'bubble-wrap', '= 1.1.5'
 gem 'geomotion'
+gem 'motion-cocoapods'

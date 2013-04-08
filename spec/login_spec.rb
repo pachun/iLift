@@ -19,7 +19,7 @@ describe 'Login View Controller' do
     controller.email_field.isEditing.should == true
 
     # tap below the nav bar
-    tap(controller.view, :at => CGPoint.make(x:5, y:50))
+    tap(controller.view, :at => CGPoint.make(x:5, y:284))
     controller.email_field.isEditing.should == false
   end
 
@@ -28,7 +28,7 @@ describe 'Login View Controller' do
     controller.password_field.isEditing.should == true
 
     # tap below the nav bar
-    tap(controller.view, :at => CGPoint.make(x:5, y:50))
+    tap(controller.view, :at => CGPoint.make(x:5, y:284))
     controller.password_field.isEditing.should == false
   end
 
@@ -72,12 +72,12 @@ describe 'Login View Controller' do
       controller.confirm_password_field.isEditing.should == true
 
       # tap below the nav bar
-      tap(controller.view, :at => CGPoint.make(x:5, y:50))
+      tap(controller.view, :at => CGPoint.make(x:5, y:284))
       controller.confirm_password_field.isEditing.should == false
     end
 
     it 'should slide out the confirm password field when the background is tapped' do
-      tap(controller.view, :at => CGPoint.make(x:5, y:50)) # tap below the nav bar
+      tap(controller.view, :at => CGPoint.make(x:5, y:284)) # tap below the nav bar
 
       confirm_password_field_right_edge = controller.confirm_password_field.center.x + LoginControlsWidth / 2
       confirm_password_underline_right_edge = controller.confirm_password_underline.center.x + LoginControlsWidth / 2
@@ -87,13 +87,15 @@ describe 'Login View Controller' do
     end
 
     it 'should slide the login button back in when the background is tapped' do
-      tap(controller.view, :at => CGPoint.make(x:5, y:50)) # tap below the nav bar
+      tap(controller.view, :at => CGPoint.make(x:5, y:284)) # tap below the nav bar
 
       login_center_x = controller.login_button.center.x
       login_center_x.should == controller.view.center.x
     end
 
     it 'should stop advancing the keyboard from the password to confirm password field' do
+      tap(controller.view, :at => CGPoint.make(x:5, y:284)) # tap below the nav bar
+
       tap('password')
       controller.password_field.isEditing.should == true
 

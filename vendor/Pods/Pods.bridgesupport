@@ -1,0 +1,209 @@
+<?xml version='1.0'?>
+<signatures version='1.0'>
+<string_constant value='EKNotifViewAutoResizeNotification' nsstring='true' name='EKNotifViewAutoResizeNotification'/>
+<enum value='2' name='EKNotifViewLabelTypeAll'/>
+<enum value='1' name='EKNotifViewLabelTypeSubtitle'/>
+<enum value='0' name='EKNotifViewLabelTypeTitle'/>
+<enum value='1' name='EKNotifViewPositionBottom'/>
+<enum value='0' name='EKNotifViewPositionTop'/>
+<enum value='1' name='EKNotifViewTextStyleSubtitle'/>
+<enum value='0' name='EKNotifViewTextStyleTitle'/>
+<enum value='2' name='EKNotifViewTypeFailure'/>
+<enum value='3' name='EKNotifViewTypeInfo'/>
+<enum value='0' name='EKNotifViewTypeLoading'/>
+<enum value='1' name='EKNotifViewTypeSuccess'/>
+<class name='EKNotifView'>
+<method selector='activityIndicator'>
+<retval declared_type='int*' type='^i'/>
+</method>
+<method selector='allowsAutomaticDismissal'>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method selector='allowsTapToDismiss'>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method selector='animationDuration'>
+<retval declared_type='CGFloat' type='f'/>
+</method>
+<method selector='changeBackgroundColorToColor:forViewType:'>
+<arg name='color' declared_type='id' index='0' type='@'/>
+<arg name='noteViewType' declared_type='EKNotifViewType' index='1' type='i'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='changeFontOfLabel:to:'>
+<arg name='notifLabelType' declared_type='EKNotifViewLabelType' index='0' type='i'/>
+<arg name='daFont' declared_type='id' index='1' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='changeTitleOfLabel:to:'>
+<arg name='notifLabelType' declared_type='EKNotifViewLabelType' index='0' type='i'/>
+<arg name='noteTitle' declared_type='NSString*' index='1' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='descLabel'>
+<retval declared_type='int*' type='^i'/>
+</method>
+<method selector='failureBackgroundColor'>
+<retval declared_type='int*' type='^i'/>
+</method>
+<method selector='hide'>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='imageView'>
+<retval declared_type='int*' type='^i'/>
+</method>
+<method selector='infoBackgroundColor'>
+<retval declared_type='int*' type='^i'/>
+</method>
+<method selector='infoDescLabel'>
+<retval declared_type='int*' type='^i'/>
+</method>
+<method selector='infoLabel'>
+<retval declared_type='int*' type='^i'/>
+</method>
+<method selector='infoTitleLabel'>
+<retval declared_type='int*' type='^i'/>
+</method>
+<method selector='initWithNotifViewType:notifPosition:notifTextStyle:andParentView:'>
+<arg name='notifViewType' declared_type='EKNotifViewType' index='0' type='i'/>
+<arg name='notifViewPosition' declared_type='EKNotifViewPosition' index='1' type='i'/>
+<arg name='notifTextStyle' declared_type='EKNotifViewTextStyle' index='2' type='i'/>
+<arg name='containingView' declared_type='id' index='3' type='@'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='isShown'>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method selector='isTransitioning'>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method selector='loadingBackgroundColor'>
+<retval declared_type='int*' type='^i'/>
+</method>
+<method selector='notifHeight'>
+<retval declared_type='CGFloat' type='f'/>
+</method>
+<method selector='parentView'>
+<retval declared_type='int*' type='^i'/>
+</method>
+<method selector='secondsToDisplay'>
+<retval declared_type='CGFloat' type='f'/>
+</method>
+<method selector='setActivityIndicator:'>
+<arg name='activityIndicator' declared_type='int*' index='0' type='^i'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setAllowsAutomaticDismissal:'>
+<arg name='allowsAutomaticDismissal' declared_type='BOOL' index='0' type='B'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setAllowsTapToDismiss:'>
+<arg name='allowsTapToDismiss' declared_type='BOOL' index='0' type='B'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setAnimationDuration:'>
+<arg name='animationDuration' declared_type='CGFloat' index='0' type='f'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setDescLabel:'>
+<arg name='descLabel' declared_type='int*' index='0' type='^i'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setFailureBackgroundColor:'>
+<arg name='failureBackgroundColor' declared_type='int*' index='0' type='^i'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setImageView:'>
+<arg name='imageView' declared_type='int*' index='0' type='^i'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setInfoBackgroundColor:'>
+<arg name='infoBackgroundColor' declared_type='int*' index='0' type='^i'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setInfoDescLabel:'>
+<arg name='infoDescLabel' declared_type='int*' index='0' type='^i'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setInfoLabel:'>
+<arg name='infoLabel' declared_type='int*' index='0' type='^i'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setInfoTitleLabel:'>
+<arg name='infoTitleLabel' declared_type='int*' index='0' type='^i'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setIsShown:'>
+<arg name='isShown' declared_type='BOOL' index='0' type='B'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setIsTransitioning:'>
+<arg name='isTransitioning' declared_type='BOOL' index='0' type='B'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setLoadingBackgroundColor:'>
+<arg name='loadingBackgroundColor' declared_type='int*' index='0' type='^i'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setNotifHeight:'>
+<arg name='notifHeight' declared_type='CGFloat' index='0' type='f'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setParentView:'>
+<arg name='parentView' declared_type='int*' index='0' type='^i'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setSecondsToDisplay:'>
+<arg name='secondsToDisplay' declared_type='CGFloat' index='0' type='f'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setSuccessBackgroundColor:'>
+<arg name='successBackgroundColor' declared_type='int*' index='0' type='^i'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setTextStyle:'>
+<arg name='textStyle' declared_type='EKNotifViewTextStyle' index='0' type='i'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setTitleLabel:'>
+<arg name='titleLabel' declared_type='int*' index='0' type='^i'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setView:'>
+<arg name='view' declared_type='int*' index='0' type='^i'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setViewPosition:'>
+<arg name='viewPosition' declared_type='EKNotifViewPosition' index='0' type='i'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setViewType:'>
+<arg name='viewType' declared_type='EKNotifViewType' index='0' type='i'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setupView'>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='show'>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='successBackgroundColor'>
+<retval declared_type='int*' type='^i'/>
+</method>
+<method selector='textStyle'>
+<retval declared_type='EKNotifViewTextStyle' type='i'/>
+</method>
+<method selector='titleLabel'>
+<retval declared_type='int*' type='^i'/>
+</method>
+<method selector='view'>
+<retval declared_type='int*' type='^i'/>
+</method>
+<method selector='viewPosition'>
+<retval declared_type='EKNotifViewPosition' type='i'/>
+</method>
+<method selector='viewType'>
+<retval declared_type='EKNotifViewType' type='i'/>
+</method>
+</class>
+</signatures>

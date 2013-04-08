@@ -1,0 +1,14 @@
+
+PODS:
+- EKNotifView (0.0.1):
+  - MBCategory (~> 0.0.1)
+- MBCategory (0.0.1)
+
+DEPENDENCIES:
+- EKNotifView
+
+SPEC CHECKSUMS:
+  EKNotifView: ea1fc45d07a18a5f4df20d7a561a2348b08a6bf6
+  MBCategory: f16e6b71dce3e8733a5c7ae28d022a7b783f0f5d
+
+COCOAPODS: 0.16.0

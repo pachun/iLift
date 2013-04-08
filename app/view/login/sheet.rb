@@ -132,4 +132,14 @@ Teacup::Stylesheet.new(:login_sheet) do
       constrain_width(LoginControlsWidth),
       constrain_height(40)
     ]
+
+  style :notification,
+    backgroundColor: :red.uicolor,
+    font: 'PatrickHand-Regular'.uifont(24),
+    constraints: [
+      constrain(:top).equals(:superview, :top),
+      constrain(:left).equals(:superview, :left),
+      constrain(:right).equals(:superview, :right),
+      constrain_height(60)
+    ]
 end

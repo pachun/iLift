@@ -1,6 +1,7 @@
 class LoginVC < UIViewController
   attr_accessor :email_field, :password_field, :login_button, :signup_button,
-    :in_signup_view, :confirm_password_field, :confirm_password_underline
+    :in_signup_view, :confirm_password_field, :confirm_password_underline,
+    :bro
 
   def viewDidLoad
     super
@@ -16,7 +17,7 @@ class LoginVC < UIViewController
     view.when_tapped do
       drop_keyboard
       if @in_signup_view
-        leave_signup_view
+        animate_signup :out
         @password_field.returnKeyType = UIReturnKeyGo
         @password_field.when(DoneWithKeyboard) { login }
       end
@@ -26,12 +27,22 @@ class LoginVC < UIViewController
     # forward keyboard (password field => confirm password field)
     @signup_button.when_tapped do
       if not @in_signup_view
-        animate_to_signup
+        animate_signup :in
         @password_field.returnKeyType = UIReturnKeyNext
         @password_field.when(DoneWithKeyboard) { @confirm_password_field.becomeFirstResponder }
       else
         signup
       end
+    end
+  end
+
+  # animate confirm password field in (slide stuff right) or out (slide stuff left)
+  def animate_signup(direction)
+    direction = (direction == :in ? :right : :left)
+
+    @in_signup_view = !@in_signup_view
+    [@login_button, @confirm_password_field, @confirm_password_underline].each do |moving_part|
+      moving_part.slide(direction, Device.screen.width)
     end
   end
 
@@ -41,25 +52,31 @@ class LoginVC < UIViewController
     @confirm_password_field.resignFirstResponder
   end
 
-  def animate_to_signup
-    @in_signup_view = true
-    [@login_button, @confirm_password_field, @confirm_password_underline].each do |moving_part|
-      moving_part.slide(:right, Device.screen.width)
-    end
-  end
-
-  def leave_signup_view
-    @in_signup_view = false
-    [@login_button, @confirm_password_field, @confirm_password_underline].each do |moving_part|
-      moving_part.slide(:left, Device.screen.width)
-    end
-  end
-
   def signup
     drop_keyboard
+
+    # show notification: signing you up
+    if valid_passwords_match?
+      @bro = Bro.new(:email => @email_field.text, :password => @password_field.text)
+      @bro.signup do
+        if @bro.saved?
+          puts "worked"
+          # show notification: signed up
+        else
+          puts "name in use"
+          # show notification: email already in use
+        end
+      end
+    else
+      # show notification: password mismatch
+    end
   end
 
   def login
     drop_keyboard
+  end
+
+  def valid_passwords_match?
+    @password_field.text == @confirm_password_field.text && @password_field.text != nil && @password_field.text.length > 4
   end
 end

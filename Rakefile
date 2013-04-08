@@ -10,4 +10,8 @@ Motion::Project::App.setup do |app|
   app.icons = ['icon.png']
   app.prerendered_icon = true
   app.fonts << ['PatrickHand-Regular.ttf']
+
+  app.pods do
+    pod 'EKNotifView'
+  end
 end
